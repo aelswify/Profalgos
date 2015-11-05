@@ -67,5 +67,22 @@ namespace SortApp
             // Combine and return
             return new MaxSubArray() { lo = leftIndexMax, hi = rightIndexMax, max = leftSum + rightSum };
         }
+        
+        public static int KadaneMaximumSub(int[] A)
+        {
+            int L = A.Length;
+
+            int max_sofar = 0;
+            int max_ending_here = 0;
+
+            for(int i = 0; i < L; i++)
+            {
+                max_ending_here = Math.Max(0, max_ending_here+ A[i]);
+                max_sofar = Math.Max(max_sofar, max_ending_here);
+            }
+
+            return max_sofar;
+        }
+        
     }
 }
