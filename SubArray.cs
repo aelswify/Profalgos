@@ -83,6 +83,23 @@ namespace SortApp
 
             return max_sofar;
         }
+
+        public static int BruteMaximumSub(int[] A)
+        {
+            int L = A.Length;
+            int sumMax = Int32.MinValue;
+            for(int i=0; i < L; i++)
+            {
+                int sum = 0;
+                for (int j = i; j < L ; j++)
+                {
+                    sum += A[j];  // Each sum represents a unique sequence
+                    sumMax = Math.Max(sum, sumMax);
+                }
+            }
+
+            return sumMax;
+        }
         
     }
 }
